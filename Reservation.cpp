@@ -1,7 +1,7 @@
-#include<iostream>
-#include<fstream>
-#include<windows.h>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <string>
 using namespace std;
 
 	struct node
@@ -26,44 +26,24 @@ class reservation{
 	//		void UpdateReservation();
 	//		void DeleteReservation();
 	//		void DisplayReservation();
-
-/*void reservation::DisplayReservation()
-{
-	node *current;
-	current = head;
-	cout << " (";
-	while (current != NULL)
-	{
-		cout << current -> info;
-		current = current -> link;
-		
-		if (current != NULL)
-		cout << ",";
-	}
-		cout << ")" << endl;
-}
-*/
 };
 
 void reservation::InsertReservation()
 {
-		node guest;
-		char k;
-		int j;
-		bool f=true;
-		node *current, *first, *next;
-		current = head;
-		next = current -> link;
-		do{
+	node guest;
+	char b;
+	int c;
+	bool d = true;
+	
+	do{
 		ofstream file;
-		file.open("Guest info.txt",ios::out|ios::app);
+		file.open("Guest info.txt", ios::out|ios::app);
 		
 		if(!file)
 		{
-			cout <<"ERROR: File can't open";
+			cout << "ERROR: File can't open";
 			system("pause");
 		}
-		
 		cout<<"Please enter your Name: ";
 		cin.getline(guest.name,20);
 		cout << endl;
@@ -86,12 +66,14 @@ void reservation::InsertReservation()
 		
 		cout << "Please enter the number of people you have: ";
 		cin.getline(guest.number_of_pax, 5);
+		
 	
-	while(f){
+	
+	while(d){
 		cout << "1.Single Room\n2.Double Room \n3.Luxury Suite \n4.President Suite\n\n";
 		cout << "Please select the room you want: ";
-		cin >> j;
-		if(j==1)
+		cin >> c;
+		if(c==1)
 		{
 			cout << "	Rooms that are available: " << endl;
 			cout << "	Single rooms: " << endl;
@@ -102,8 +84,8 @@ void reservation::InsertReservation()
 			cout << endl << endl;
 			cout << "Please enter the room number you want to book: ";
 			cin >> guest.room_number;
-			f = false;
-		}else if(j==2)
+			d = false;
+		}else if(c==2)
 		{
 				cout << "	Rooms that are available: " << endl;
 				cout << "	Double rooms: " << endl;
@@ -114,8 +96,8 @@ void reservation::InsertReservation()
 			cout << endl << endl;
 			cout << "Please enter the room number you want to book: ";
 			cin >> guest.room_number;
-			f = false;
-		}else if(j==3)
+			d = false;
+		}else if(c==3)
 		{
 			cout << "	Rooms that are available: " << endl;
 			cout << "	Luxury Suite: " << endl;
@@ -125,8 +107,8 @@ void reservation::InsertReservation()
 			cout << endl << endl;
 			cout << "Please enter the room number you want to book: ";
 			cin >> guest.room_number;
-			f = false;
-		}else if (j==4)
+			d = false;
+		}else if (c==4)
 		{
 				cout << "	Rooms that are available: " << endl;
 				cout << "	President Suite" << endl;
@@ -136,21 +118,23 @@ void reservation::InsertReservation()
 			cout << endl << endl;
 			cout << "Please enter the room number you want to book: ";
 			cin >> guest.room_number;
-			f = false;
+			d = false;
 			
 		}else
 		{
 			cout << "Wrong input. Please try again";
-			f = true;
+			d = true;
 		}
 	}
-		int y;
-		cout << "Press 1 to Save or 2 to cancel:";
+	
+	int e;
+	cout << "Press 1 to Save or 2 to cancel:";
 		cout << endl;
-		cin >> y;
+		cin >> e;
 		
-		if(y==1)
+		if(e==1)
 		{
+			ofstream file;
 			cout << endl;
 			file << "Guests info" << endl;
 			cout << endl;
@@ -180,21 +164,13 @@ void reservation::InsertReservation()
 			cout << endl;
 		}
 		
-		if(guest.room_number == (guest.single_room[i] || guest.double_room[i] || guest.deluxe_suite[i] || guest.president_suite))
-		{
-			delete current;
-			current = next;
-			next = current -> link;
-		}
-	
 			cout << "Enter (Y/y) to input another data or enter (N/n) to Exit";
-			cin >> k;
+			cin >> b;
 			cout << "======================================================" << endl;
 			cout << endl;
-		}while(k == 'y' || k == 'Y');
-	
-	
+		}while(b == 'y' || b == 'Y');
 }
+
 
 int main()
 {
@@ -202,22 +178,14 @@ int main()
 	cout <<" Welcome to the Hotel Reservation Application" << endl << endl;
 	cout <<"================================================" << endl;
 	
-	reservation reserve;
+	
+	reservation Reserve;
 	node *r;
 	r = new node;
-	int x;
-//	Beep(2020,1100);
-	char a=200;
-	cout <<"Please wait while the system is analyzing the data\n";
-//	for (int i=0; i<10; i++)
-//	{
-//		Beep(2000,500);
-//		cout << a;
-//	}
+	int a;
+	cout << "Please wait while the system is analyzing hte data\n";
 	
 	cout << endl;
-	
-	
 	cout<<"===================================" << endl;
 	cout <<"    		Main Menu   " << endl << endl;
 	cout << "	Rooms that are available: " << endl;
@@ -254,20 +222,20 @@ int main()
 	cout <<"	6. Exit" << endl << endl;
 	
 	cout << "Please enter here: ";
-	cin >> x;
+	cin >> a;
 	cout << "===================================" << endl;
 	cout << endl;
-	if(x == 1)
+	
+	if(a == 1)
 	{
-		cout << "=======================" << endl;
-		cout << "BOOK A RESERVATION" << endl;
-		cout << "=========================" << endl;
+		system("CLS");
+		cout << "===================================" << endl;
+		cout << "	BOOK A RESERVATION" << endl;
+		cout << "===================================" << endl;
 		cin.ignore();
-		reserve.InsertReservation();
+		Reserve.InsertReservation();
 	}
-		return 0;
+	
+	return 0;
 
 }
-
-
-
